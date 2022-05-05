@@ -1,5 +1,6 @@
 package com.isilsubasi.hafta10;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,14 +8,18 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 
 public class HocaAdapter extends RecyclerView.Adapter<HocaViewHolder> {
 
     ArrayList<Hoca> hocalar=new ArrayList<>();
+    Context context;
 
-    public HocaAdapter(ArrayList<Hoca> hocalar) {
+    public HocaAdapter(ArrayList<Hoca> hocalar, Context context) {
         this.hocalar = hocalar;
+        this.context = context;
     }
 
     @NonNull
@@ -31,6 +36,7 @@ public class HocaAdapter extends RecyclerView.Adapter<HocaViewHolder> {
         viewHolder.txtMail.setText(hocalar.get(position).getMail());
         viewHolder.txtIsim.setText(hocalar.get(position).getIsim());
 
+        GlideUtil.resmiIndiripGoster(context,hocalar.get(position).getResimUrl(),viewHolder.imgHoca);
 
     }
 

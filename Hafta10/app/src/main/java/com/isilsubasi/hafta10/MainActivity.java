@@ -25,21 +25,29 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void init(){
-        imgKapak=findViewById(R.id.imgKapak);
+        kapakResminiCek();
+        initRecyclerView();
 
-        Glide.with(getApplicationContext())
-                .load(resimUrl)
-                .fitCenter()
-                //.error(R.drawable.errorResim)
-                .into(imgKapak);
-
-
-        recyclerView=findViewById(R.id.rcvHocalar);
-
-        HocaAdapter hocaAdapter=new HocaAdapter(DataUtil.hocaDatasiAl());
-        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-        recyclerView.setAdapter(hocaAdapter);
 
 
     }
+
+    private void kapakResminiCek(){
+        imgKapak=findViewById(R.id.imgKapak);
+        GlideUtil.resmiIndiripGoster(getApplicationContext(),resimUrl,imgKapak);
+
+    }
+
+
+    private void initRecyclerView(){
+        recyclerView=findViewById(R.id.rcvHocalar);
+
+        HocaAdapter hocaAdapter=new HocaAdapter(DataUtil.hocaDatasiAl(),getApplicationContext());
+        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+        recyclerView.setAdapter(hocaAdapter);
+
+    }
+
+
+
 }
