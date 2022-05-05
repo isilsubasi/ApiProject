@@ -1,6 +1,8 @@
 package com.isilsubasi.hafta10;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.widget.ImageView;
@@ -12,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView imgKapak;
     String resimUrl="http://isilsubasi.xtgem.com/hafta10/medipolniversitesi.jpg";
 
+    RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +32,13 @@ public class MainActivity extends AppCompatActivity {
                 .fitCenter()
                 //.error(R.drawable.errorResim)
                 .into(imgKapak);
+
+
+        recyclerView=findViewById(R.id.rcvHocalar);
+
+        HocaAdapter hocaAdapter=new HocaAdapter(DataUtil.hocaDatasiAl());
+        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+        recyclerView.setAdapter(hocaAdapter);
 
 
     }

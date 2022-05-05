@@ -2,9 +2,9 @@ package com.isilsubasi.hafta10;
 
 public class Hoca {
 
-    String isim;
-    String mail;
-    String resimUrl;
+    private String isim;
+    private String mail;
+    private String resimUrl;
 
     public Hoca(String isim, String mail, String resimUrl) {
         this.isim = isim;
