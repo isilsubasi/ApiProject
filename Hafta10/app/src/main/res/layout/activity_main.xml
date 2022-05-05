@@ -6,30 +6,37 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-
-    <LinearLayout
-        android:orientation="vertical"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:id="@+id/imgKapak"
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-
-            tools:srcCompat="@tools:sample/avatars" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rcvHocalar"
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_constraintTop_toBottomOf="@+id/imgKapak"
-            tools:listitem="@layout/list_item_ogretmen" />
-    </LinearLayout>
+            >
+
+            <ImageView
+                android:id="@+id/imgKapak"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcvHocalar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintTop_toBottomOf="@+id/imgKapak"
+                tools:listitem="@layout/list_item_ogretmen" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+
 
 
 
